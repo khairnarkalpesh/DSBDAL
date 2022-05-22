@@ -1,0 +1,36 @@
+https://kontext.tech/article/445/install-hadoop-330-on-windows-10-using-wsl
+
+
+========================================
+
+bin/hdfs namenode -format
+-------------------------
+
+sudo service ssh start
+
+cd ~/hadoop/hadoop-3.3.0/
+	
+sbin/start-dfs.sh
+
+sbin/start-yarn.sh
+
+sbin/stop-dfs.sh
+
+sbin/stop-yarn.sh
+
+sbin/start-all.sh
+
+sbin/stop-all.sh
+
+sudo service ssh stop
+
+
+======================================
+
+namenode clusterID = CID-f44d9e98-b1a2-48d9-9807-840389de4db8;
+
+datanode clusterID = CID-c2005712-f2b8-4997-8d5e-4fa40d672031
+
+cd /tmp/hadoop-kalpesh/dfs/data
+
+hadoop datanode

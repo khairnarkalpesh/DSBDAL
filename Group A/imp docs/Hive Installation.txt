@@ -1,0 +1,52 @@
+- wget https://downloads.apache.org/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz
+
+- tar xzf apache-hive-3.1.2-bin.tar.gz
+
+- sudo nano .bashrc
+
+- sudo nano .bashrc
+
+- source ~/.bashrc
+
+- export HADOOP_HOME=/home/hdoop/hadoop-3.2.1
+---------
+export HIVE_HOME="/home/kalpesh/hive/apache-hive-3.1.2-bin"
+export PATH=$PATH:$HIVE_HOME/bin
+---------
+
+Create Hive Directories in HDFS
+
+- hdfs dfs -mkdir /tmp
+
+- hdfs dfs -chmod g+w /tmp
+
+Create warehouse Directory
+- hdfs dfs -mkdir -p /user/hive/warehouse
+
+- hdfs dfs -ls /user/hive
+
+change directory to hive -> conf
+
+- cp hive-default.xml.template hive-site.xml
+
+- sudo nano hive-site.xml
+
+export HADOOP_HOME=/home/kalpesh/hadoop/hadoop-3.3.0
+
+- $HIVE_HOME/bin/schematool -dbType derby -initSchema	
+
+If exception -
+- rm $HIVE_HOME/lib/guava-19.0.jar
+
+- cp $HADOOP_HOME/share/hadoop/hdfs/lib/guava-27.0-jre.jar $HIVE_HOME/lib/
+
+- $HIVE_HOME/bin/schematool -dbType derby -initSchema
+
+
+--------------------------------------------------------------
+
+MySQL
+
+- SOURCE /home/kalpesh/hive/apache-hive-3.1.2-bin/scripts/metastore/upgrade/mysql/hive-schema-0.14.0.mysql.sql;
+
+- CREATE USER 'hiveusr'@'%' IDENTIFIED BY 'hivepass';

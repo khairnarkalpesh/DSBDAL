@@ -1,0 +1,4 @@
+(Bus,1), (Car,1), (bus,1), (car,1), (train,1),
+(car,1), (bus,1), (car,1), (train,1), (bus,1),
+(TRAIN,1),(BUS,1), (buS,1), (caR,1), (CAR,1),
+(car,1), (BUS,1), (TRAIN,1)

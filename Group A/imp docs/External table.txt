@@ -1,0 +1,7 @@
+hive> CREATE EXTERNAL TABLE stud(roll_no int, name string, branch string)
+> Row format delimited                                                                            
+> Fields terminated by ','                                                                       
+> LOCATION 'user/hive';
+
+
+LOAD DATA INPATH '/user/hive/data.txt';

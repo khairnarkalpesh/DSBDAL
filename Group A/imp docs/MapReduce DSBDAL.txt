@@ -1,0 +1,55 @@
+under h-3.3
+
+hdfs dfs -mkdir /user
+
+hdfs dfs -mkdir /user/kalpesh
+
+hdfs dfs -mkdir /user/kalpesh/input
+
+hdfs dfs -mkdir /user/kalpesh/output
+
+hdfs dfs -ls /user
+
+-------------------------------------
+
+hdfs dfs -put demo.txt input
+
+hdfs dfs -cat /user/kalpesh/input/demo.txt
+
+-------------------------------------------
+
+export HADOOP_CLASSPATH=$JAVA_HOME/lib/tools.jar
+
+MapReduce
+
+Program - 
+
+Compile it - hadoop com.sun.tools.javac.Main WordCount.java
+
+Make a jar - jar cf wc.jar WordCount*.class
+
+Run the jar - hadoop jar wc.jar WordCount input/demo.txt output/count
+
+hdfs dfs -cat /user/kalpesh/output/count4/*
+
+=============================================================
+
+analyzelogs
+
+javac -d . SalesMapper.java SalesCountryReducer.java SalesCountryDriver.java
+
+export CLASSPATH="$HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.3.0.jar:$HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-client-common-3.3.0.jar:$HADOOP_HOME/share/hadoop/common/hadoop-common-3.3.0.jar:~/New/SalesCountry/*:$HADOOP_HOME/lib/*"
+
+jar -cfm Assignment2.jar Manifest.txt SalesCountry/*.class
+
+## hdfs dfs -put access_log_short.csv input
+
+hdfs dfs -mkdir /user/kalpesh/input2008
+
+hdfs dfs -put access_log_short.csv input2008 
+
+hadoop jar Assignment2.jar input2008/ output2008/
+
+-- FINAL OUTPUT-------
+hdfs dfs -cat /user/kalpesh/output4/part-00000
+

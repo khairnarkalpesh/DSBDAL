@@ -1,0 +1,23 @@
+sudo service ssh start
+
+mkdir Assignment3
+
+cd Assignment3 
+
+cp Manifest.xml Manifest.txt
+
+export CLASSPATH="$HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.3.0.jar:$HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-client-common-3.3.0.jar:$HADOOP_HOME/share/hadoop/common/hadoop-common-3.3.0.jar:~/Assignment3/MaxMinTemp/*:$HADOOP_HOME/lib/*"
+
+javac -d . MaxTemperatureDriver.java MaxTemperatureMapper.java MaxTemperatureReducer.java                                  
+
+jar -cfm Assignment3.jar Manifest.txt MaxMinTemp/*.class 
+
+hdfs dfs -put 1901 input2008
+
+sbin/start-all.sh
+
+hdfs dfs -put input-dataset temp_data
+
+hadoop jar Assignment3.jar temp_data/ assignment3-1/ 
+
+hdfs dfs -cat /user/kalpesh/assignment3-1/*
